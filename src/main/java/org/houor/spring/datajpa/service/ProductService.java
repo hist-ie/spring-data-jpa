@@ -1,5 +1,7 @@
 package org.houor.spring.datajpa.service;
 
+import java.util.List;
+
 import org.houor.spring.datajpa.domain.Product;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -15,5 +17,7 @@ public interface ProductService {
 	Product findByID(Long id);
 
 	public Page<Product> findByName(String string, Pageable pageable);
+	
+	List<Product> findByDescription(String description);
 
 }

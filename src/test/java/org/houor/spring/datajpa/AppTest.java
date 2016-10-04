@@ -1,5 +1,7 @@
 package org.houor.spring.datajpa;
 
+import java.util.List;
+
 import org.houor.spring.datajpa.domain.Product;
 import org.houor.spring.datajpa.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -76,5 +78,18 @@ public class AppTest extends TestCase {
 		assertEquals(false, productPage.hasNext());
 		assertEquals(false, productPage.hasPrevious());
 
+	}
+	
+	public void testFind() {
+		productService = context.getBean(ProductService.class);
+		List<Product> list = productService.findByDescription("test");
+		for(Product p : list) {
+			System.out.println(p.getName() + ", " + p.getDescription());
+		}
+		
+		assertNotNull(list);
+		assertEquals(8, list.size());
+		
+		
 	}
 }

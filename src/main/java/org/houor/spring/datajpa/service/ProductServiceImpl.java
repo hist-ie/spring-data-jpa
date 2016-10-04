@@ -1,5 +1,7 @@
 package org.houor.spring.datajpa.service;
 
+import java.util.List;
+
 import org.houor.spring.datajpa.domain.Product;
 import org.houor.spring.datajpa.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,5 +34,12 @@ public class ProductServiceImpl implements ProductService {
 	public Page<Product> findByName(String string, Pageable pageable) {
 		return productRepository.findByName(string, pageable);
 	}
+
+
+	public List<Product> findByDescription(String description) {
+		return productRepository.findByDescription(description);
+	}
+	
+	
 
 }
